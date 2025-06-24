@@ -33,6 +33,13 @@ jobs:
       - name: Build page
         run: npm run build
 
+  notification:
+    needs: build
+    runs-on: ubuntu-latest
+    if: always()  # Always run this job regardless of the previous job's success or failure
 
+    steps:
+      - name: Hola
+        run: echo "Hola, el job de build ha finalizado."
       
       
